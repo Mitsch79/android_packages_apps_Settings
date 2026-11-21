@@ -101,6 +101,12 @@ public class SetupChooseLockGeneric extends ChooseLockGeneric {
         return false;
     }
 
+    @Override
+    protected int getPreferenceLayout(Intent intent) {
+        return intent.getBooleanExtra(EXTRA_PREFS_SHOW_BUTTON_BAR, false)
+                ? super.getPreferenceLayout(intent) : R.layout.setup_lock_content;
+    }
+
     public static class SetupChooseLockGenericFragment extends ChooseLockGenericFragment {
 
         public static final String EXTRA_PASSWORD_QUALITY = ":settings:password_quality";

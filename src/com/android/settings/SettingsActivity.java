@@ -304,7 +304,7 @@ public class SettingsActivity extends SettingsBaseActivity
             setTheme(R.style.Theme_SubSettings);
         }
 
-        setContentView(R.layout.settings_main_prefs);
+        setContentView(getPreferenceLayout(intent));
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
@@ -379,6 +379,10 @@ public class SettingsActivity extends SettingsBaseActivity
         if (DEBUG_TIMING) {
             Log.d(LOG_TAG, "onCreate took " + (System.currentTimeMillis() - startTime) + " ms");
         }
+    }
+
+    protected int getPreferenceLayout(Intent intent) {
+        return R.layout.settings_main_prefs;
     }
 
     private void setActionBarStatus() {
