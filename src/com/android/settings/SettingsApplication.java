@@ -26,6 +26,8 @@ import android.util.FeatureFlagUtils;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.setupcompat.util.SetupShaderCache;
+
 import com.android.settings.activityembedding.ActivityEmbeddingRulesController;
 import com.android.settings.activityembedding.ActivityEmbeddingUtils;
 import com.android.settings.core.instrumentation.ElapsedTimeUtils;
@@ -50,6 +52,7 @@ public class SettingsApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        SetupShaderCache.initialize(base);
         FeatureFactory.setFactory(this, getFeatureFactory());
     }
 
